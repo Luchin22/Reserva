@@ -1,15 +1,14 @@
 require("dotenv").config();
 const express = require("express");
 const sequelize = require("./config/config");
-const routes = require("./routes");
-
+//const routes = require("./routes");
 
 const app = express();
 const PORT = process.env.PORT || 3005;
 
 // Middlewares
 app.use(express.json());
-app.use("/api", routes); // Todas las rutas del API empezarán con /api
+//app.use("/api", routes); // Todas las rutas del API empezarán con /api
 
 
 
@@ -38,8 +37,7 @@ app.use("/api", routes); // Todas las rutas del API empezarán con /api
 sequelize.sync({ force: false })
     .then(async () => {
         console.log("Tablas sincronizadas con éxito.");
-        await initializeRoles();
-        await initializeTipoActividad();
+
         app.listen(PORT, () => {
             console.log(`Servidor ejecutándose en http://localhost:${PORT}`);
         });
