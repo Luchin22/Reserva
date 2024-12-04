@@ -15,7 +15,7 @@ const Asiento = sequelize.define("Asiento", {
             key: "id_bus",
         },
     },
-    numero_asiento: {
+    numero: {
         type: DataTypes.STRING,
         allowNull: false,
     },

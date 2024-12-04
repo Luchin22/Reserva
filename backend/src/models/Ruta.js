@@ -15,7 +15,7 @@ const Ruta = sequelize.define("Ruta", {
         type: DataTypes.STRING,
         allowNull: false,
     },
-    tiempo_estimado: {
+    distancia: {
         type: DataTypes.INTEGER,
         allowNull: false,
     },

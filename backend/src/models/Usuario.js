@@ -20,18 +20,31 @@ const Usuario = sequelize.define("Usuario", {
         type: DataTypes.STRING(50),
         allowNull: false,
     },
+    apellido: { 
+            type: DataTypes.STRING(50), 
+            allowNull: false,
+            validate: { notEmpty: true } // No permite valores vacíos
+        },
     email: {
-        type: DataTypes.STRING(100),
-        allowNull: false,
-        unique: true,
+        type: DataTypes.STRING(100), 
+            allowNull: false, 
+            unique: true,
+            validate: {
+            isEmail: true, // Validación de formato de email
+            notEmpty: true
+            }
     },
     telefono: {
         type: DataTypes.STRING(15),
         allowNull: true,
     },
     password: {
-        type: DataTypes.STRING(255),
+        type: DataTypes.STRING(255), 
         allowNull: false,
+        validate: {
+        len: [8, 255], // Mínimo 8 caracteres para seguridad
+        notEmpty: true
+        }
     },
         refresh_token: { type: DataTypes.TEXT },
         reset_token: { type: DataTypes.STRING }, // Token para recuperación de contraseña

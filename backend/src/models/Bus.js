@@ -13,7 +13,7 @@ const Bus = sequelize.define("Bus", {
         allowNull: false,
         unique: true,
     },
-    color: {
+    marca: {
         type: DataTypes.STRING,
         allowNull: false,
     },
@@ -28,7 +28,7 @@ const Bus = sequelize.define("Bus", {
             key: "id_conductor",
         },
     },
-    capacidad_asientos: {
+    capacidad: {
         type: DataTypes.INTEGER,
         allowNull: false,
     },

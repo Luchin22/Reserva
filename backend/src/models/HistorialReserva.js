@@ -9,7 +9,7 @@ const HistorialReserva = sequelize.define("HistorialReserva", {
         primaryKey: true,
         autoIncrement: true,
     },
-    id_usuario: {
+    usuario_id: {
         type: DataTypes.INTEGER,
         references: {
             model: Usuario,
@@ -37,8 +37,8 @@ const HistorialReserva = sequelize.define("HistorialReserva", {
 });
 
 // Relaciones
-Usuario.hasMany(HistorialReserva, { foreignKey: "id_usuario" });
-HistorialReserva.belongsTo(Usuario, { foreignKey: "id_usuario" });
+Usuario.hasMany(HistorialReserva, { foreignKey: "usuario_id" });
+HistorialReserva.belongsTo(Usuario, { foreignKey: "usuario_id" });
 
 Reserva.hasMany(HistorialReserva, { foreignKey: "id_reserva" });
 HistorialReserva.belongsTo(Reserva, { foreignKey: "id_reserva" });
