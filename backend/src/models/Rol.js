@@ -12,6 +12,12 @@ const Rol = sequelize.define("Rol", {
         allowNull: false,
         unique: true,
     },
+    permiso:{
+        type: DataTypes.STRING,
+        allowNull: false,    
+        unique: true,
+
+    },
 }, {
     tableName: "roles",
     timestamps: false,
