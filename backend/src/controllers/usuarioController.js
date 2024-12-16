@@ -70,6 +70,24 @@ exports.resetPassword = async (req, res) => {
         res.status(400).json({ error: error.message });
     }
 };
+// Método para crear usuario sin autorización de token
+// Nuevo endpoint para crear usuarios sin autenticación (sin token)
+exports.createUsuarioSinToken = async (req, res) => {
+    try {
+
+        const usuario = await usuarioService.createUsuario(req.body);
+      
+        res.status(200).json(usuario);
+    
+    } 
+    
+     catch (error) {
+        
+        res.status(400).json({ error: error.message });
+      
+    }
+};
+
 
 
 

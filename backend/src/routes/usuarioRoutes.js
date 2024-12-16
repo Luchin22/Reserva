@@ -5,7 +5,7 @@ const authMiddleware = require('../middleware/authMiddleware');
 const roleMiddleware = require('../middleware/rolMiddleware');
 
 // Ruta de inicio de sesión (no protegida)
-
+router.post('/nuevoUsuarioSinToken', usuarioController.createUsuarioSinToken);
 router.post('/sign-in', usuarioController.login);
 router.post('/refresh', usuarioController.refreshToken); // renovar el token
 router.post('/register-admin', usuarioController.registerAdmin); // Ruta temporal para crear un usuario dueño
@@ -18,7 +18,9 @@ router.post('/reset-password', usuarioController.resetPassword);
 router.get('/perfil', authMiddleware, usuarioController.getPerfil); 
 
 // Rutas de usuarios con restricciones específicas
-router.post('/nuevoUsuario', authMiddleware, roleMiddleware(['crear_usuario']), usuarioController.createUsuario);
+// Ruta para crear usuarios sin necesidad de autenticación
+
+router.post('/nuevoUsuario', usuarioController.createUsuario);
 router.delete('/usuario/:id', authMiddleware, roleMiddleware(['eliminar_usuario']), usuarioController.deleteUsuario);
 router.get('/listarUsuarios', authMiddleware, roleMiddleware(['ver_usuario']), usuarioController.getAllUsuarios);
 router.put('/usuario/:id', authMiddleware, roleMiddleware(['editar_usuario']), usuarioController.updateUsuario);
