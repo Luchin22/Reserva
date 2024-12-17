@@ -1,10 +1,25 @@
 import React, { useState } from 'react';
 import { View, Text, ScrollView, StyleSheet, TouchableOpacity, TextInput } from 'react-native';
+import Icon from 'react-native-vector-icons/MaterialIcons'; 
+
+
 
 const RouteListScreen = ({ navigation, route }) => {
   const { selectedOrigin, selectedDestination } = route.params; // Recibir los datos
 
   const [selectedRow, setSelectedRow] = useState(null);
+  const handlePerfil = () => {
+    navigation.navigate('Perfil',{
+  
+    });  
+  }
+  
+  const handleHorario = () => {
+    navigation.navigate('Horario');
+  }
+  const handleHistorial = () => {
+    navigation.navigate('Historial');
+  }
 
   const routes = [
     { id: 1, departure: '08:20', duration: '2:10', availableSeats: '20' },
@@ -65,6 +80,21 @@ const RouteListScreen = ({ navigation, route }) => {
           <Text style={styles.buttonText}>Confirmar</Text>
         </TouchableOpacity>
       )}
+      {/* Nueva barra de navegación (footer) */}
+      <View style={styles.footer}>
+        <TouchableOpacity onPress={handleHorario}>
+          <Icon name="home" size={30} color="black" />
+        </TouchableOpacity>
+        
+        <TouchableOpacity onPress={handleHistorial}>
+          <Icon name="history" size={30} color="black" />
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={handlePerfil}>
+          <Icon name="person" size={30} color="black" />
+        </TouchableOpacity>
+       
+      </View>
     </View>
   );
 };
@@ -136,6 +166,14 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontSize: 18,
     marginTop: 5,
+  },
+  footer: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    backgroundColor: '#fff',
+    paddingVertical: 10,
+    borderTopWidth: 1,
+    borderTopColor: '#ddd',
   },
 });
 

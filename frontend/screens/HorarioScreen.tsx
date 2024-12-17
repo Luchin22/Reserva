@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, FlatList, TouchableOpacity, Picker } from 'react-native';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 const HorarioScreen = ({ navigation }) => {
 
@@ -10,7 +11,15 @@ const HorarioScreen = ({ navigation }) => {
       selectedDestination: selectedDestination,
     });
   };
+  const handlePerfil = () => {
+      navigation.navigate('Perfil',{
 
+      });  
+  }
+
+  const handleHistorial = () => {
+    navigation.navigate('Historial');
+  }
   const data = [
     { id: '1', origin: 'Cuenca', destination: 'Quito', distance: '500 km', status: 'Activo' },
     { id: '2', origin: 'Guayaquil', destination: 'Cuenca', distance: '200 km', status: 'No Activo' },
@@ -114,6 +123,22 @@ const HorarioScreen = ({ navigation }) => {
           <Text style={styles.confirmButtonText}>Confirmar</Text>
         </TouchableOpacity>
       )}
+         {/* Nueva barra de navegación (footer) */}
+         <View style={styles.footer}>
+        <TouchableOpacity onPress={() => navigation.navigate('Home')}>
+          <Icon name="home" size={30} color="black" />
+        </TouchableOpacity>
+        
+        <TouchableOpacity onPress={handleHistorial}>
+          <Icon name="history" size={30} color="black" />
+        </TouchableOpacity>
+       <TouchableOpacity
+          onPress={handlePerfil}
+        >
+          <Icon name="person" size={30} color="black" />
+        </TouchableOpacity>
+        
+      </View>
     </View>
   );
 };
@@ -183,6 +208,15 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
   },
+    // Tus estilos existentes
+    footer: {
+      flexDirection: 'row',
+      justifyContent: 'space-around',
+      backgroundColor: '#fff',
+      paddingVertical: 10,
+      borderTopWidth: 1,
+      borderTopColor: '#ddd',
+    },
 });
 
 export default HorarioScreen;
