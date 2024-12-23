@@ -13,10 +13,14 @@ const RouteListScreen = ({ navigation, route }) => {
   
     });  
   }
+  const handleTicket = () => {
+    navigation.navigate('Ticket');
+  } 
   
   const handleHorario = () => {
     navigation.navigate('Horario');
   }
+
   const handleHistorial = () => {
     navigation.navigate('Historial');
   }
@@ -76,7 +80,7 @@ const RouteListScreen = ({ navigation, route }) => {
 
       {/* Botón Confirmar */}
       {selectedRow && (
-        <TouchableOpacity style={styles.buttonConfirm} onPress={handleConfirm}>
+        <TouchableOpacity style={styles.buttonConfirm} onPress={handleTicket}>
           <Text style={styles.buttonText}>Confirmar</Text>
         </TouchableOpacity>
       )}

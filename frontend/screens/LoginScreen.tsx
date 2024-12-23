@@ -6,11 +6,13 @@ const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   
-  
+  const handleHome = () => {
+    navigation.navigate('Home');
+  };
 
   const handleLogin = () => {
     console.log('Iniciar Sesión con:', email, password);
-    navigation.navigate('Horario'); // Navegar a horario cuando se hace clic en "Iniciar Sesión"
+    navigation.navigate('Home'); // Navegar a horario cuando se hace clic en "Iniciar Sesión"
   };
   
   const handleRegister = () => {
@@ -56,7 +58,7 @@ const LoginScreen = ({ navigation }) => {
       />
 
       {/* Botón de Iniciar Sesión */}
-      <TouchableOpacity style={styles.loginButton} onPress={handleLogin}>
+      <TouchableOpacity style={styles.loginButton} onPress={handleHome}>
         <Text style={styles.loginText}>Iniciar Sesión</Text>
       </TouchableOpacity>
 

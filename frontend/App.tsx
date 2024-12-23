@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native'; // Contenedor de navegación
-import { createStackNavigator } from '@react-navigation/stack'; // Creador de stack de navegación
+import { createStackNavigator, } from '@react-navigation/stack'; // Creador de stack de navegación
 import LoginScreen from './screens/LoginScreen'; // Pantalla de login
 import RegisterScreen from './screens/RegisterScreen'; // Pantalla de registro
 import RutaScreen from './screens/RutaScreen';
@@ -9,6 +9,14 @@ import PerfilScreen from './screens/PerfilScreen';
 import HistorialScreen from './screens/HistorialScreen';
 import EditarScreen from './screens/EditarScreen';
 import PaymentScreen from './screens/PaymentScreen';
+import TicketScreen from './screens/TicketScreen';
+import PagoScreen from './screens/PagoScreen';
+import HomeScreen from './screens/HomeScreen';
+import CrearScreen from './screens/CrearScreen';
+import DatoScreen from './screens/DatoScreen';
+
+
+
 // Define los tipos de las pantallas
 type RootStackParamList = {
   Login: undefined; // Si la pantalla no recibe parámetros, es undefined
@@ -19,6 +27,11 @@ type RootStackParamList = {
   Historial: undefined;
   Editar: undefined;
   Payment: undefined;
+  Ticket: undefined;
+  Pago: undefined;
+  Home: undefined;
+  Crear: undefined;
+  Dato: undefined;
 };
 
 // Crear el Stack Navigator y agregar el tipo
@@ -36,6 +49,11 @@ export default function App() {
         <Stack.Screen name="Historial" component={HistorialScreen} />
         <Stack.Screen name="Editar" component={EditarScreen} />
         <Stack.Screen name="Payment" component={PaymentScreen} />
+        <Stack.Screen name="Ticket" component={TicketScreen} />
+        <Stack.Screen name="Pago" component={PagoScreen} />
+        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="Crear" component={CrearScreen} />
+        <Stack.Screen name="Dato" component={DatoScreen} /> 
       </Stack.Navigator>
     </NavigationContainer>
   );
